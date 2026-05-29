@@ -1,0 +1,15 @@
+{
+	"name": "ravi-df-datafactory-dev",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "31b812ef-7bd8-4ab4-84d1-8c4aa12a3a46",
+		"tenantId": "cd2475f3-add4-4e51-a327-1b420dc4b8a7"
+	}
+}

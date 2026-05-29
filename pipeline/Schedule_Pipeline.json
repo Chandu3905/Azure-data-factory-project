@@ -1,0 +1,82 @@
+{
+	"name": "Schedule_Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Ingestion",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"schema": {
+							"value": "@pipeline().parameters.schema",
+							"type": "Expression"
+						},
+						"table": {
+							"value": "@pipeline().parameters.table",
+							"type": "Expression"
+						},
+						"back_date": {
+							"value": "@pipeline().parameters.back_date",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Alerts",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-19.northcentralus.logic.azure.com:443/workflows/07b04e678aeb46aa9bb0231aceaa96ec/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=zER-Tmw662x3jJ4E1k03JwkpLcAk9LrMPhj4rfIGR24",
+					"body": {
+						"value": "{\n    \"Pipeline Name\" : \"@{pipeline().Pipeline}\",\n    \"Pipeline runid\" : \"@{pipeline().RunId}\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "source"
+			},
+			"table": {
+				"type": "string",
+				"defaultValue": "Orders"
+			},
+			"back_date": {
+				"type": "string",
+				"defaultValue": "\""
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-05-27T10:17:56Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
