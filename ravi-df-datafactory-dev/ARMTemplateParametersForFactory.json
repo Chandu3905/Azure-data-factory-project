@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ravi-df-datafactory-dev"
+		},
+		"LS_GEN2_accountKey": {
+			"value": ""
+		},
+		"LS_GEN2_BLOLB_accountKey": {
+			"value": ""
+		},
+		"LS_Sql_Database_password": {
+			"value": ""
+		},
+		"Ls_database_password": {
+			"value": ""
+		},
+		"LS_GEN2_properties_typeProperties_url": {
+			"value": "https://ravistgacct.dfs.core.windows.net/"
+		},
+		"LS_GEN2_BLOLB_properties_typeProperties_url": {
+			"value": "https://ravistgacct1.dfs.core.windows.net/"
+		},
+		"LS_Github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"LS_REST_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"LS_Sql_Database_properties_typeProperties_server": {
+			"value": "raviserver2026.database.windows.net"
+		},
+		"LS_Sql_Database_properties_typeProperties_database": {
+			"value": "ravidb"
+		},
+		"LS_Sql_Database_properties_typeProperties_userName": {
+			"value": "raviadmin"
+		},
+		"Ls_database_properties_typeProperties_server": {
+			"value": "raviserverdevelopment.database.windows.net"
+		},
+		"Ls_database_properties_typeProperties_database": {
+			"value": "ravidatabase"
+		},
+		"Ls_database_properties_typeProperties_userName": {
+			"value": "raviadmin"
+		},
+		"Scheduled_properties_Schedule_Pipeline_parameters_schema": {
+			"value": "source"
+		},
+		"Scheduled_properties_Schedule_Pipeline_parameters_table": {
+			"value": "Orders"
+		}
+	}
+}

@@ -1,0 +1,174 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ravi-df-datafactory-dev"
+		},
+		"LS_GEN2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_GEN2'"
+		},
+		"LS_GEN2_BLOLB_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_GEN2_BLOLB'"
+		},
+		"LS_Sql_Database_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Sql_Database'"
+		},
+		"Ls_database_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Ls_database'"
+		},
+		"LS_GEN2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ravistgacct.dfs.core.windows.net/"
+		},
+		"LS_GEN2_BLOLB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ravistgacct1.dfs.core.windows.net/"
+		},
+		"LS_Github_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com/"
+		},
+		"LS_REST_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"LS_Sql_Database_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "raviserver2026.database.windows.net"
+		},
+		"LS_Sql_Database_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ravidb"
+		},
+		"LS_Sql_Database_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "raviadmin"
+		},
+		"Ls_database_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "raviserverdevelopment.database.windows.net"
+		},
+		"Ls_database_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ravidatabase"
+		},
+		"Ls_database_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "raviadmin"
+		},
+		"Scheduled_properties_Schedule_Pipeline_parameters_schema": {
+			"type": "string",
+			"defaultValue": "source"
+		},
+		"Scheduled_properties_Schedule_Pipeline_parameters_table": {
+			"type": "string",
+			"defaultValue": "Orders"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ravi-df-datafactory-dev_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_GEN2_accountKey": {
+						"value": "[parameters('LS_GEN2_accountKey')]"
+					},
+					"LS_GEN2_BLOLB_accountKey": {
+						"value": "[parameters('LS_GEN2_BLOLB_accountKey')]"
+					},
+					"LS_Sql_Database_password": {
+						"value": "[parameters('LS_Sql_Database_password')]"
+					},
+					"Ls_database_password": {
+						"value": "[parameters('Ls_database_password')]"
+					},
+					"LS_GEN2_properties_typeProperties_url": {
+						"value": "[parameters('LS_GEN2_properties_typeProperties_url')]"
+					},
+					"LS_GEN2_BLOLB_properties_typeProperties_url": {
+						"value": "[parameters('LS_GEN2_BLOLB_properties_typeProperties_url')]"
+					},
+					"LS_Github_properties_typeProperties_url": {
+						"value": "[parameters('LS_Github_properties_typeProperties_url')]"
+					},
+					"LS_REST_properties_typeProperties_url": {
+						"value": "[parameters('LS_REST_properties_typeProperties_url')]"
+					},
+					"LS_Sql_Database_properties_typeProperties_server": {
+						"value": "[parameters('LS_Sql_Database_properties_typeProperties_server')]"
+					},
+					"LS_Sql_Database_properties_typeProperties_database": {
+						"value": "[parameters('LS_Sql_Database_properties_typeProperties_database')]"
+					},
+					"LS_Sql_Database_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Sql_Database_properties_typeProperties_userName')]"
+					},
+					"Ls_database_properties_typeProperties_server": {
+						"value": "[parameters('Ls_database_properties_typeProperties_server')]"
+					},
+					"Ls_database_properties_typeProperties_database": {
+						"value": "[parameters('Ls_database_properties_typeProperties_database')]"
+					},
+					"Ls_database_properties_typeProperties_userName": {
+						"value": "[parameters('Ls_database_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ravi-df-datafactory-dev_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Scheduled_properties_Schedule_Pipeline_parameters_schema": {
+						"value": "[parameters('Scheduled_properties_Schedule_Pipeline_parameters_schema')]"
+					},
+					"Scheduled_properties_Schedule_Pipeline_parameters_table": {
+						"value": "[parameters('Scheduled_properties_Schedule_Pipeline_parameters_table')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ravi-df-datafactory-dev_ArmTemplate_0')]"
+			]
+		}
+	]
+}
