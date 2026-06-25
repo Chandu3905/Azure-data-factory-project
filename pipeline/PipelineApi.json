@@ -63,7 +63,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"p_filename": {
-											"value": "@item().name",
+											"value": "@{item().name}.csv",
 											"type": "Expression"
 										}
 									}
@@ -76,7 +76,7 @@
 									"parameters": {
 										"file": "github",
 										"folder": {
-											"value": "@item().name",
+											"value": "@{item().name}.csv",
 											"type": "Expression"
 										}
 									}
