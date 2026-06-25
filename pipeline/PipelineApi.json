@@ -74,11 +74,11 @@
 									"referenceName": "ds_parameterized_csv",
 									"type": "DatasetReference",
 									"parameters": {
-										"file": "github",
-										"folder": {
+										"file": {
 											"value": "@{item().name}.csv",
 											"type": "Expression"
-										}
+										},
+										"folder": "github"
 									}
 								}
 							]
