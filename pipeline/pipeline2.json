@@ -112,7 +112,7 @@
 				"typeProperties": {
 					"variableName": "file_names_quoted",
 					"value": {
-						"value": "@variables('filenames')",
+						"value": "@string(variables('filenames'))",
 						"type": "Expression"
 					}
 				}
