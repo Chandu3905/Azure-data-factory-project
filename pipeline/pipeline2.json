@@ -92,6 +92,30 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "file_names_quoted",
+					"value": {
+						"value": "@variables('filenames')",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"variables": {
@@ -100,6 +124,9 @@
 			},
 			"filesize": {
 				"type": "Integer"
+			},
+			"file_names_quoted": {
+				"type": "String"
 			}
 		},
 		"annotations": []
